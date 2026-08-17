@@ -113,11 +113,8 @@ func (s *Store) Get(hash string) ([]byte, error) {
 	if !ok {
 		return nil, ErrNotFound
 	}
-	var out []byte
-	if len(c) > 0 {
-		out = make([]byte, len(c))
-		copy(out, c)
-	}
+	out := make([]byte, len(c))
+	copy(out, c)
 	return out, nil
 }
 
